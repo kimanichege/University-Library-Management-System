@@ -3,15 +3,14 @@ interface Book {
   author: string;
   genre: string;
   rating: number;
-  totalCopies: number;
-  availableCopies: number;
+  total_copies: number;
+  available_copies: number;
   description: string;
   coverColor: string;
-  color: string;
   coverUrl: string;
   video: string;
   summary: string;
-  isloaded: boolean;
+  isloaned: boolean;
   id: string;
   userId: string;
 }

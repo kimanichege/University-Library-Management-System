@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
-const BookOverview = ({title,genre,author,rating, totalCopies, availableCopies, description, coverColor, coverUrl, id }: Book) => {
+import { Button } from "./ui/button";
+import BookCover from "./BookCover";
+const BookOverview = ({title,genre,author,rating, total_copies, available_copies, description,coverUrl,coverColor, id }: Book) => {
   return (
     <section className="book-overview">
       <div className="flex flex-1 flex-col gap-5">
@@ -24,15 +26,43 @@ const BookOverview = ({title,genre,author,rating, totalCopies, availableCopies, 
 
         <div className="book-copies">
           <p>
-            Total Books <span>{totalCopies}</span>
+            Total Books <span>{total_copies}</span>
           </p>
 
           <p>
-            Available Books <span>{availableCopies}</span>
+            Available Books <span>{available_copies}</span>
           </p>
         </div>
 
         <p className="book-description">{description}</p>
+
+        <Button>
+          <Image
+            src="/icons/book.svg"
+            alt="bookmark"
+            width={22}
+            height={22}
+          />
+          <p className="font-bebas-neue text-xl dark-dark-100">Borrow</p>
+        </Button>
+      </div>
+         <div className="relative flex flex-1 justify-center">
+        <div className="relative">
+          <BookCover
+            variant="wide"
+            className="z-10"
+            coverColor={coverColor}
+            coverUrl={coverUrl}
+          />
+
+          <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
+            <BookCover
+              variant="wide"
+              coverColor={coverColor}
+              coverUrl={coverUrl}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
